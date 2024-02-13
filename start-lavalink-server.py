@@ -6,7 +6,7 @@ from packaging import version
 
 pattern = r"\"(\d+\.\d+).*\""
 sep = os.sep
-lavalink_run_cmd = ["java", "-jar", f".{sep}ext{sep}lavalink_server{sep}Lavalink.jar"]
+lavalink_run_cmd = ["java", "-jar", f".{sep}nameless-extensions{sep}lavalink_server{sep}Lavalink.jar"]
 
 java_version = ""
 
