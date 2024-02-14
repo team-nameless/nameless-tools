@@ -1,8 +1,13 @@
 # Tool to generate cog
-
+import os.path
 import sys
+from pathlib import Path
 
-cog_name = sys.argv[1] + "Cog"
+
+cog_name = sys.argv[1]
+
+if not cog_name.endswith("Cog"):
+    cog_name += "Cog"
 
 cog_template = f"""
 import logging
@@ -29,7 +34,9 @@ async def teardown(bot: Nameless):
     logging.warning("%s cog removed!", __name__)
 """
 
-with open("nameless/cogs/" + cog_name + ".py", "w") as f:
+path = Path(os.path.dirname(__file__))
+
+with open(path.parent / "nameless" / "cogs" / f"{cog_name}.py", "w+") as f:
     f.write(cog_template)
 
 print(f"Cog {cog_name} generated!")
